@@ -8,14 +8,14 @@ import pieces.Piece.Color;
 import pieces.PieceOperations;
 import pieces.Position;
 
-public class Board implements BoardGenerations {
+public class Board_web implements BoardGenerations {
 	public static final String NEW_LINE = System.getProperty("line.separator");
 	public static final int ROW_SIZE = 8;
 	public static final int COLUMN_SIZE = 8;
 	
 	List<Rank> ranks = new ArrayList<Rank>();
 	
-	Board() {
+	Board_web() {
 	}
 
 	void initialize() {
@@ -88,9 +88,11 @@ public class Board implements BoardGenerations {
 	@Override
 	public String generateBoard() {
 		StringBuilder sb = new StringBuilder();
+		sb.append("<html>" + "<head>" + "</head>" + "<body>");
 		for (int i = ROW_SIZE; i > 0; i--) {
 			sb.append(generateRank(i-1) + NEW_LINE);
 		}
+		sb.append("</body>" + "</html>");
 		return sb.toString();
 	}
 }
