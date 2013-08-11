@@ -1,5 +1,6 @@
 package pieces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -10,6 +11,11 @@ public class Bishop extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
-		return null;
+		List<Position> possibleMoves = new ArrayList<Position>();
+		PositionController psController = new PositionController(this.getPosition());
+		
+		possibleMoves = psController.findsDiagonalPositionAll();
+		
+		return possibleMoves;	
 	}
 }
