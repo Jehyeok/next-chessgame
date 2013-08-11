@@ -61,6 +61,8 @@ public class Board {
 	void movePiece(Position source, Position target) {
 		if (findPiece(source).equals(new Empty(Color.NOCOLOR, source))) return;
 		if (!target.isValid()) return;
+		if (findPiece(source).isWhite() && findPiece(target).isWhite()) return;
+		if (findPiece(source).isBlack() && findPiece(target).isBlack()) return;
 		
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
