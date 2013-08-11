@@ -1,7 +1,10 @@
 package pieces;
 
-import pieces.Piece.Color;
+import java.util.ArrayList;
+import java.util.List;
+
 import junit.framework.TestCase;
+import pieces.Piece.Color;
 
 public class PieceTest extends TestCase {
 	public void testIsWhite() throws Exception {
@@ -25,5 +28,13 @@ public class PieceTest extends TestCase {
 		Position source = new Position("a1");
 		Piece whitePawn = new Pawn(Color.WHITE, source);
 		assertEquals(new Empty(Color.NOCOLOR, source), whitePawn.leave());
+	}
+	
+	public void testGetPossibleMovesOfEmpty() throws Exception {
+		List<Position> possibleMoves = new ArrayList<Position>();
+		Piece empty = new Empty(Color.NOCOLOR, new Position("a1"));
+		
+		possibleMoves = empty.getPossibleMoves();
+		assertEquals(0, possibleMoves.size());
 	}
 }
