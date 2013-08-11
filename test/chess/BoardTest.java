@@ -6,6 +6,7 @@ import pieces.Pawn;
 import pieces.Piece;
 import pieces.Piece.Color;
 import pieces.Position;
+import pieces.Rook;
 
 public class BoardTest extends TestCase {
 	private Board board;
@@ -74,6 +75,19 @@ public class BoardTest extends TestCase {
 		board.movePiece(source, target);
 		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
+		System.out.println(board.generateBoard());
+	}
+	
+	public void testCannotMoveOutOfBoundary() throws Exception {
+		board.initialize();
+		Position source = new Position("a1");
+		Piece sourcePiece = board.findPiece(source);
+		assertEquals(new Rook(Color.WHITE, source), sourcePiece);
+		
+		Position target = new Position("a0");
+		board.movePiece(source, target);
+		assertEquals(new Rook(Color.WHITE, source), board.findPiece(source));
+//		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
 		System.out.println(board.generateBoard());
 	}
 }

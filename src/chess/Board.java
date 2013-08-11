@@ -60,6 +60,8 @@ public class Board {
 
 	void movePiece(Position source, Position target) {
 		if (findPiece(source).equals(new Empty(Color.NOCOLOR, source))) return;
+		if (!target.isValid()) return;
+		
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
 		
