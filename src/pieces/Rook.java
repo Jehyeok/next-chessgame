@@ -9,7 +9,7 @@ public class Rook extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		List<Position> possibleMoves = new ArrayList<Position>();
 		PositionController psController = new PositionController(this.getPosition());
 		

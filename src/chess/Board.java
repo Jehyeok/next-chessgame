@@ -63,6 +63,7 @@ public class Board {
 		if (!target.isValid()) return;
 		if (findPiece(source).isWhite() && findPiece(target).isWhite()) return;
 		if (findPiece(source).isBlack() && findPiece(target).isBlack()) return;
+		if (!findPiece(source).getPossibleMoves().contains(target)) return;
 		
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
