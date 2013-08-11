@@ -3,7 +3,9 @@ package chess;
 import java.util.ArrayList;
 import java.util.List;
 
+import pieces.Empty;
 import pieces.Piece;
+import pieces.Piece.Color;
 import pieces.Position;
 
 public class Board {
@@ -57,6 +59,7 @@ public class Board {
 	}
 
 	void movePiece(Position source, Position target) {
+		if (findPiece(source).equals(new Empty(Color.NOCOLOR, source))) return;
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
 		
