@@ -37,4 +37,12 @@ public class PieceTest extends TestCase {
 		possibleMoves = empty.getPossibleMoves();
 		assertEquals(0, possibleMoves.size());
 	}
+	
+	public void testGetPossibleMovesOfRook() throws Exception {
+		List<Position> possibleMoves = new ArrayList<Position>();
+		Piece whiteRook = new Rook(Color.WHITE, new Position("a1"));
+		
+		possibleMoves = whiteRook.getPossibleMoves();
+		System.out.println(possibleMoves);
+	}
 }
