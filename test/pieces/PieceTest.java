@@ -95,4 +95,12 @@ public class PieceTest extends TestCase {
 		Piece piece = new Pawn(Color.BLACK, new Position("b7"));
 		assertTrue(piece.getPosition().getY() == 6 && piece instanceof Pawn && piece.isBlack());
 	}
+	
+	public void testGetPossibleMovesOfNight() throws Exception {
+		List<Position> possibleMoves = new ArrayList<Position>();
+		Piece whiteKnight = new Knight(Color.WHITE, new Position("d3"));
+		
+		possibleMoves = whiteKnight.getPossibleMoves();
+		System.out.println(possibleMoves);
+	}
 }

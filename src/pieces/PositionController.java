@@ -35,4 +35,12 @@ public class PositionController {
 		}
 		return positions;
 	}
+	
+	public List<Position> findPositionSequentialStepInDirection(Direction[] directions) {
+		List<Position> positions = new ArrayList<Position>();
+		for (Direction direction : directions) {
+			positions.addAll(position.findsPositionThreeStep(direction));
+		}
+		return positions;
+	}
 }

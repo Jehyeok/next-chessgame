@@ -1,6 +1,7 @@
 package pieces;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import chess.Board;
@@ -39,11 +40,10 @@ public class Position {
 	Position move(Direction direction) {
 		return new Position(this.x + direction.getXDegree(), this.y + direction.getYDegree());
 	}
-
+	
 	List<Position> findsPositionOneStep(Direction direction, Piece piece) {
 		ArrayList<Position> positions = new ArrayList<Position>();
 		Position currentPosition = move(direction);
-		currentPosition = move(direction);
 		if (isBlackPawnInitialState(piece) && (direction == Direction.SOUTH)) {
 			currentPosition = currentPosition.move(direction);
 		}
@@ -53,6 +53,32 @@ public class Position {
 		if (currentPosition.isValid()) {
 			positions.add(currentPosition);
 		}
+		return positions;
+	}
+	
+	List<Position> findsPositionThreeStep(Direction direction) {
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = move(direction);
+		currentPosition = currentPosition.move(direction);
+		
+		if ((direction == Direction.EAST) || (direction == Direction.WEST)) {
+			if (currentPosition.move(Direction.NORTH).isValid()) {
+				positions.add(currentPosition.move(Direction.NORTH));
+			}
+			if (currentPosition.move(Direction.SOUTH).isValid()) {
+				positions.add(currentPosition.move(Direction.SOUTH));
+			}
+		}
+		
+		if ((direction == Direction.NORTH) || (direction == Direction.SOUTH)) {
+			if (currentPosition.move(Direction.EAST).isValid()) {
+				positions.add(currentPosition.move(Direction.EAST));
+			}
+			if (currentPosition.move(Direction.WEST).isValid()) {
+				positions.add(currentPosition.move(Direction.WEST));
+			}
+		}
+		
 		return positions;
 	}
 
@@ -115,8 +141,4 @@ public class Position {
 	public String toString() {
 		return "Position [x=" + x + ", y=" + y + "]";
 	}
-
-
-
-
 }

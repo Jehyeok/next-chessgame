@@ -1,5 +1,6 @@
 package pieces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Knight extends Piece {
@@ -9,6 +10,11 @@ public class Knight extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
-		return null;
+		List<Position> possibleMoves = new ArrayList<Position>();
+		PositionController psController = new PositionController(this.getPosition());
+		Direction[] directions = Direction.linearDirection();
+		
+		possibleMoves = psController.findPositionSequentialStepInDirection(directions);
+		return possibleMoves;
 	}
 }
