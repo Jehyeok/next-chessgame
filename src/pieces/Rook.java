@@ -14,7 +14,6 @@ public class Rook extends Piece {
 		PositionController psController = new PositionController(this.getPosition());
 		
 		possibleMoves = psController.findsLinearPositionAll();
-		possibleMoves.addAll(psController.findsDiagonalPositionAll());
 		
 		return possibleMoves;		
 	}

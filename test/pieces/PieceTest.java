@@ -53,4 +53,12 @@ public class PieceTest extends TestCase {
 		possibleMoves = whiteBishop.getPossibleMoves();
 		System.out.println(possibleMoves);
 	}
+	
+	public void testGetPossibleMovesOfQueen() throws Exception {
+		List<Position> possibleMoves = new ArrayList<Position>();
+		Piece whiteQueen = new Queen(Color.WHITE, new Position("a1"));
+		
+		possibleMoves = whiteQueen.getPossibleMoves();
+		System.out.println(possibleMoves);
+	}
 }
