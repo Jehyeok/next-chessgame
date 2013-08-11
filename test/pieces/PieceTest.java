@@ -69,4 +69,14 @@ public class PieceTest extends TestCase {
 		possibleMoves = whiteKing.getPossibleMoves();
 		System.out.println(possibleMoves);
 	}
+	
+	public void testGetPossibleMovesOfPawn() throws Exception {
+		List<Position> possibleMoves = new ArrayList<Position>();
+		Piece whitePawn = new Pawn(Color.WHITE, new Position("b2"));
+		
+		possibleMoves = whitePawn.getPossibleMoves();
+		System.out.println(possibleMoves);
+	}
+	
+	
 }

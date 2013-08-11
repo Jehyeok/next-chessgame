@@ -1,5 +1,6 @@
 package pieces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -10,6 +11,13 @@ public class Pawn extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
-		return null;
+		List<Position> possibleMoves = new ArrayList<Position>();
+		PositionController psController = new PositionController(this.getPosition());
+		Direction[] directions = null;
+		if(this.isWhite()) directions = Direction.whitePawnDirection();
+		if(this.isBlack()) directions = Direction.blackPawnDirection();
+		
+		possibleMoves = psController.findPositionOneStepInDirection(directions); 
+		return possibleMoves;
 	}
 }
