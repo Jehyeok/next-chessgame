@@ -12,7 +12,7 @@ public class Position {
 	private int y;
 
 	public Position(String position) {
-		// 에러 상태에 대한 처리 필요함.
+		// ������ ��������� ������ ������ ���������.
 		this.x = generateColumnIndex(position.charAt(0));
 		this.y = Integer.parseInt(position.substring(1)) - 1;
 	}
@@ -40,6 +40,16 @@ public class Position {
 		return new Position(this.x + direction.getXDegree(), this.y + direction.getYDegree());
 	}
 
+	List<Position> findsPositionOneStep(Direction direction) {
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = move(direction);
+		currentPosition = move(direction);
+		if (currentPosition.isValid()) {
+			positions.add(currentPosition);
+		}
+		return positions;
+	}
+	
 	List<Position> findsPosition(Direction direction) {
 		ArrayList<Position> positions = new ArrayList<Position>();
 		Position currentPosition = move(direction);

@@ -61,4 +61,12 @@ public class PieceTest extends TestCase {
 		possibleMoves = whiteQueen.getPossibleMoves();
 		System.out.println(possibleMoves);
 	}
+	
+	public void testGetPossibleMovesOfKing() throws Exception {
+		List<Position> possibleMoves = new ArrayList<Position>();
+		Piece whiteKing = new King(Color.WHITE, new Position("b4"));
+		
+		possibleMoves = whiteKing.getPossibleMoves();
+		System.out.println(possibleMoves);
+	}
 }

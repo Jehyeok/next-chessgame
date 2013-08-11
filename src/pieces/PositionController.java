@@ -27,4 +27,22 @@ public class PositionController {
 		}
 		return positions;
 	}
+	
+	public List<Position> findsLinearPositionOneStep() {
+		Direction[] linears = Direction.linearDirection();
+		List<Position> positions = new ArrayList<Position>();
+		for (Direction direction : linears) {
+			positions.addAll(position.findsPositionOneStep(direction));
+		}
+		return positions;
+	}
+	
+	public List<Position> findsDiagonalPositionOneStep() {
+		Direction[] diagonals = Direction.diagonalDirection();
+		List<Position> positions = new ArrayList<Position>();
+		for (Direction direction : diagonals) {
+			positions.addAll(position.findsPositionOneStep(direction));
+		}
+		return positions;
+	}
 }
