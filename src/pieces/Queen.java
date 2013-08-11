@@ -13,8 +13,8 @@ public class Queen extends Piece {
 	public List<Position> getPossibleMoves() {
 		List<Position> possibleMoves = new ArrayList<Position>();
 		
-		Piece whiteRook = new Rook(Color.WHITE, this.getPosition());
-		Piece whiteBishop = new Bishop(Color.WHITE, this.getPosition());
+		PieceOperations whiteRook = new Rook(Color.WHITE, this.getPosition());
+		PieceOperations whiteBishop = new Bishop(Color.WHITE, this.getPosition());
 		
 		possibleMoves = whiteRook.getPossibleMoves();
 		possibleMoves.addAll(whiteBishop.getPossibleMoves());

@@ -8,31 +8,31 @@ import pieces.Piece.Color;
 
 public class PieceTest extends TestCase {
 	public void testIsWhite() throws Exception {
-		Piece whitePawn = new Pawn(Color.WHITE, null);
+		PieceOperations whitePawn = new Pawn(Color.WHITE, null);
 		assertTrue(whitePawn.isWhite());
 	}
 
 	public void testIsBlack() throws Exception {
-		Piece blackPawn = new Pawn(Color.BLACK, null);
+		PieceOperations blackPawn = new Pawn(Color.BLACK, null);
 		assertTrue(blackPawn.isBlack());
 	}
 	
 	public void testMove() throws Exception {
 		Position source = new Position("a1");
 		Position target = new Position("a2");
-		Piece whitePawn = new Pawn(Color.WHITE, source);
+		PieceOperations whitePawn = new Pawn(Color.WHITE, source);
 		assertEquals(new Pawn(Color.WHITE, target), whitePawn.move(target));
 	}
 	
 	public void testLeave() throws Exception {
 		Position source = new Position("a1");
-		Piece whitePawn = new Pawn(Color.WHITE, source);
+		PieceOperations whitePawn = new Pawn(Color.WHITE, source);
 		assertEquals(new Empty(Color.NOCOLOR, source), whitePawn.leave());
 	}
 	
 	public void testGetPossibleMovesOfEmpty() throws Exception {
 		List<Position> possibleMoves = new ArrayList<Position>();
-		Piece empty = new Empty(Color.NOCOLOR, new Position("a1"));
+		PieceOperations empty = new Empty(Color.NOCOLOR, new Position("a1"));
 		
 		possibleMoves = empty.getPossibleMoves();
 		assertEquals(0, possibleMoves.size());
@@ -40,7 +40,7 @@ public class PieceTest extends TestCase {
 	
 	public void testGetPossibleMovesOfRook() throws Exception {
 		List<Position> possibleMoves = new ArrayList<Position>();
-		Piece whiteRook = new Rook(Color.WHITE, new Position("a1"));
+		PieceOperations whiteRook = new Rook(Color.WHITE, new Position("a1"));
 		
 		possibleMoves = whiteRook.getPossibleMoves();
 		System.out.println(possibleMoves);
@@ -48,7 +48,7 @@ public class PieceTest extends TestCase {
 	
 	public void testGetPossibleMovesOfBishop() throws Exception {
 		List<Position> possibleMoves = new ArrayList<Position>();
-		Piece whiteBishop = new Bishop(Color.WHITE, new Position("a1"));
+		PieceOperations whiteBishop = new Bishop(Color.WHITE, new Position("a1"));
 		
 		possibleMoves = whiteBishop.getPossibleMoves();
 		System.out.println(possibleMoves);
@@ -56,7 +56,7 @@ public class PieceTest extends TestCase {
 	
 	public void testGetPossibleMovesOfQueen() throws Exception {
 		List<Position> possibleMoves = new ArrayList<Position>();
-		Piece whiteQueen = new Queen(Color.WHITE, new Position("a1"));
+		PieceOperations whiteQueen = new Queen(Color.WHITE, new Position("a1"));
 		
 		possibleMoves = whiteQueen.getPossibleMoves();
 		System.out.println(possibleMoves);
@@ -64,7 +64,7 @@ public class PieceTest extends TestCase {
 	
 	public void testGetPossibleMovesOfKing() throws Exception {
 		List<Position> possibleMoves = new ArrayList<Position>();
-		Piece whiteKing = new King(Color.WHITE, new Position("b4"));
+		PieceOperations whiteKing = new King(Color.WHITE, new Position("b4"));
 		
 		possibleMoves = whiteKing.getPossibleMoves();
 		System.out.println(possibleMoves);
@@ -72,7 +72,7 @@ public class PieceTest extends TestCase {
 	
 	public void testGetPossibleMovesOfPawn() throws Exception {
 		List<Position> possibleMoves = new ArrayList<Position>();
-		Piece whitePawn = new Pawn(Color.WHITE, new Position("b2"));
+		PieceOperations whitePawn = new Pawn(Color.WHITE, new Position("b2"));
 		
 		possibleMoves = whitePawn.getPossibleMoves();
 		System.out.println(possibleMoves);
@@ -80,14 +80,14 @@ public class PieceTest extends TestCase {
 	
 	public void testGetPossibleMovesOfBlackPawnTwoStep() throws Exception {
 		List<Position> possibleMoves = new ArrayList<Position>();
-		Piece blackPawn = new Pawn(Color.BLACK, new Position("b7"));
+		PieceOperations blackPawn = new Pawn(Color.BLACK, new Position("b7"));
 		
 		possibleMoves = blackPawn.getPossibleMoves();
 		System.out.println(possibleMoves);
 	}
 	
 	public void testIsPawn() {
-		Piece piece = new Pawn(Color.BLACK, new Position("b7"));
+		PieceOperations piece = new Pawn(Color.BLACK, new Position("b7"));
 		assertTrue(piece instanceof Pawn);
 	}
 	
@@ -98,7 +98,7 @@ public class PieceTest extends TestCase {
 	
 	public void testGetPossibleMovesOfNight() throws Exception {
 		List<Position> possibleMoves = new ArrayList<Position>();
-		Piece whiteKnight = new Knight(Color.WHITE, new Position("d3"));
+		PieceOperations whiteKnight = new Knight(Color.WHITE, new Position("d3"));
 		
 		possibleMoves = whiteKnight.getPossibleMoves();
 		System.out.println(possibleMoves);
