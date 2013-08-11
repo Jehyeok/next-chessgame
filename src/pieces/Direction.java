@@ -35,10 +35,10 @@ public enum Direction {
 	}
 	
 	public static Direction[] whitePawnDirection() {
-		return new Direction[] { EAST, SOUTH, WEST };
+		return new Direction[] { EAST, NORTH, WEST };
 	}
 	
 	public static Direction[] blackPawnDirection() {
-		return new Direction[] { EAST, NORTH, WEST };
+		return new Direction[] { EAST, SOUTH, WEST };
 	}
 }

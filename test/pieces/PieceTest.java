@@ -78,5 +78,21 @@ public class PieceTest extends TestCase {
 		System.out.println(possibleMoves);
 	}
 	
+	public void testGetPossibleMovesOfBlackPawnTwoStep() throws Exception {
+		List<Position> possibleMoves = new ArrayList<Position>();
+		Piece blackPawn = new Pawn(Color.BLACK, new Position("b7"));
+		
+		possibleMoves = blackPawn.getPossibleMoves();
+		System.out.println(possibleMoves);
+	}
 	
+	public void testIsPawn() {
+		Piece piece = new Pawn(Color.BLACK, new Position("b7"));
+		assertTrue(piece instanceof Pawn);
+	}
+	
+	public void testBlackPawnIsInitialState() {
+		Piece piece = new Pawn(Color.BLACK, new Position("b7"));
+		assertTrue(piece.getPosition().getY() == 6 && piece instanceof Pawn && piece.isBlack());
+	}
 }

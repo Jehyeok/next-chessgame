@@ -40,14 +40,28 @@ public class Position {
 		return new Position(this.x + direction.getXDegree(), this.y + direction.getYDegree());
 	}
 
-	List<Position> findsPositionOneStep(Direction direction) {
+	List<Position> findsPositionOneStep(Direction direction, Piece piece) {
 		ArrayList<Position> positions = new ArrayList<Position>();
 		Position currentPosition = move(direction);
 		currentPosition = move(direction);
+		if (isBlackPawnInitialState(piece) && (direction == Direction.SOUTH)) {
+			currentPosition = currentPosition.move(direction);
+		}
+		if (isWhitePawnInitialState(piece) && (direction == Direction.NORTH)) {
+			currentPosition = currentPosition.move(direction);
+		}
 		if (currentPosition.isValid()) {
 			positions.add(currentPosition);
 		}
 		return positions;
+	}
+
+	public boolean isBlackPawnInitialState(Piece piece) {
+		return (piece.getPosition().getY() == 6) && piece instanceof Pawn && piece.isBlack();
+	}
+	
+	public boolean isWhitePawnInitialState(Piece piece) {
+		return (piece.getPosition().getY() == 1) && piece instanceof Pawn && piece.isWhite();
 	}
 	
 	List<Position> findsPosition(Direction direction) {
@@ -101,6 +115,7 @@ public class Position {
 	public String toString() {
 		return "Position [x=" + x + ", y=" + y + "]";
 	}
+
 
 
 

@@ -28,10 +28,10 @@ public class PositionController {
 		return positions;
 	}
 	
-	public List<Position> findPositionOneStepInDirection(Direction[] directions) {
+	public List<Position> findPositionOneStepInDirection(Direction[] directions, Piece piece) {
 		List<Position> positions = new ArrayList<Position>();
 		for (Direction direction : directions) {
-			positions.addAll(position.findsPositionOneStep(direction));
+			positions.addAll(position.findsPositionOneStep(direction, piece));
 		}
 		return positions;
 	}

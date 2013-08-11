@@ -14,7 +14,7 @@ public class King extends Piece {
 		PositionController psController = new PositionController(this.getPosition());
 		Direction[] directions = Direction.linearDirection();
 		
-		possibleMoves = psController.findPositionOneStepInDirection(directions); 
+		possibleMoves = psController.findPositionOneStepInDirection(directions, this); 
 		return possibleMoves;
 	}
 }

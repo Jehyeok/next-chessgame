@@ -17,7 +17,7 @@ public class Pawn extends Piece {
 		if(this.isWhite()) directions = Direction.whitePawnDirection();
 		if(this.isBlack()) directions = Direction.blackPawnDirection();
 		
-		possibleMoves = psController.findPositionOneStepInDirection(directions); 
+		possibleMoves = psController.findPositionOneStepInDirection(directions, this); 
 		return possibleMoves;
 	}
 }
